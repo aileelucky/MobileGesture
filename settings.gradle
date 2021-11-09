@@ -1,3 +1,4 @@
 rootProject.name = "MobileGesture"
-include ':app',':patternlockview'
+include ':app'
+//include ':patternlockview'
 include ':shinemogesture'
