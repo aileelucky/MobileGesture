@@ -43,7 +43,7 @@
         android:textColor="@color/white"
         android:textSize="18sp"/>
 
-    <com.android.patternlockview.PatternLockView
+    <com.shinemo.patterlockview.PatternLockView
         android:id="@+id/lock_pattern"
         android:layout_width="300dp"
         android:layout_height="300dp"

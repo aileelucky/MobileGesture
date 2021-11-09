@@ -6,16 +6,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
 
-import com.android.patternlockview.PatternLockView;
-import com.android.patternlockview.listener.PatternLockViewListener;
+import com.shinemo.patterlockview.PatternLockView;
+import com.shinemo.patterlockview.listener.PatternLockViewListener;
 import com.shinemo.shinemogesture.ShinemoGesture;
 import com.shinemo.shinemogesture.listener.SettingGestureImp;
 import com.shinemo.shinemogesture.listener.ShinemoCommonImp;
 import com.shinemo.shinemogesture.model.LoginResp;
-import com.shinemo.shinemogesture.model.QueryGestureRequest;
-import com.shinemo.shinemogesture.model.SettingGestureRequest;
 import com.shinemo.shinemogesture.model.SettingGestureResponse;
-import com.shinemo.shinemogesture.util.AESEncrypt;
 import com.shinemo.shinemogesture.util.ToastUtil;
 
 import java.util.List;
@@ -138,42 +135,14 @@ public class LockSetupActivity extends GestureBaseActivity {
             @Override
             public void error(SettingGestureResponse response, String code, String msg) {
                 super.error(response,code,msg);
-                if(!"0".equals(code)){
-                    return;
-                }
-                if(isFirstSetting){
-                    isFirstSetting = false;
-                    titleTip.setText("请再次输入手势密码");
-                }
-                ticket = response.getTicket();
-                patternLockView.clearPattern();
+                //第一次请求会走error,此时当code=1的时候，表示第一次请求成功，并且会返回ticket
             }
         });
-
-//        AdvancedRetrofitHelper.enqueue(this,gestureService.setGesture(request),new SimpleRetrofitCallback<SimpleResp<SettingGestureResponse>>(){
-//            @Override
-//            public void onSuccess(Call<SimpleResp<SettingGestureResponse>> call, SimpleResp<SettingGestureResponse> resp) {
-//                super.onSuccess(call, resp);
-//                ToastUtil.show(LockSetupActivity.this,"设置手势密码成功");
-//                finish();
-//            }
-//
-//            @Override
-//            public void onError(Call<SimpleResp<SettingGestureResponse>> call, BaseResp baseResp) {
-//                if(isFirstSetting){
-//                    isFirstSetting = false;
-//                    titleTip.setText("请再次输入手势密码");
-//                }
-//                ticket = ((SimpleResp<SettingGestureResponse>)baseResp).getData().getTicket();
-//                patternLockView.clearPattern();
-//            }
-//        });
     }
 
     //验证手势
     private void loginGesture(){
         ShinemoGesture.loginGesture(this,account,selectDots,new ShinemoCommonImp<LoginResp>(){
-
             @Override
             public void end() {
                 super.end();
