@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.patternlockview.utils;
+package com.shinemo.patterlockview.utils;
 
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
@@ -23,7 +23,8 @@ import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.patternlockview.PatternLockView;
+
+import com.shinemo.patterlockview.PatternLockView;
 
 import java.util.List;
 

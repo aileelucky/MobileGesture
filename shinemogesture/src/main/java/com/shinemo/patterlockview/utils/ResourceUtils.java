@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-package com.android.patternlockview.utils;
+package com.shinemo.patterlockview.utils;
 
 import android.content.Context;
 

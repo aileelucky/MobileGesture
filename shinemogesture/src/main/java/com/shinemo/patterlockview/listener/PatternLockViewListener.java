@@ -1,5 +1,6 @@
-package com.android.patternlockview.listener;
-import com.android.patternlockview.PatternLockView;
+package com.shinemo.patterlockview.listener;
+
+import com.shinemo.patterlockview.PatternLockView;
 
 import java.util.List;
 

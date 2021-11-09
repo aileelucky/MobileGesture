@@ -1,4 +1,4 @@
-package com.android.patternlockview;
+package com.shinemo.patterlockview;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -17,16 +17,14 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
-import com.android.patternlockview.listener.PatternLockViewListener;
-import com.android.patternlockview.utils.ResourceUtils;
+import com.shinemo.patterlockview.listener.PatternLockViewListener;
+import com.shinemo.patterlockview.utils.ResourceUtils;
+import com.shinemo.shinemogesture.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-import static com.android.patternlockview.PatternLockView.PatternViewMode.CORRECT;
-import static com.android.patternlockview.PatternLockView.PatternViewMode.NORMAL;
-import static com.android.patternlockview.PatternLockView.PatternViewMode.WRONG;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Dimension;
@@ -40,7 +38,7 @@ public class PatternLockView extends View {
     /**
      * 模式
      */
-    @IntDef({NORMAL, CORRECT, WRONG})
+    @IntDef({PatternViewMode.NORMAL, PatternViewMode.CORRECT, PatternViewMode.WRONG})
     @Retention(RetentionPolicy.SOURCE)
     public @interface PatternViewMode {
         //默认状态
@@ -313,7 +311,7 @@ public class PatternLockView extends View {
         Dot hitDot = detectAndAddHit(x, y);
         if (hitDot != null) {
             mPatternInProgress = true;
-            mPatternViewMode = CORRECT;
+            mPatternViewMode = PatternViewMode.CORRECT;
             notifyPatternStarted();
         } else {
             mPatternInProgress = false;
@@ -345,7 +343,7 @@ public class PatternLockView extends View {
          */
         if (hitDot != null && patternSize == 1) {
             mPatternInProgress = true;
-            mPatternViewMode = CORRECT;
+            mPatternViewMode = PatternViewMode.CORRECT;
             notifyPatternStarted();
         }
 
@@ -556,11 +554,11 @@ public class PatternLockView extends View {
      * 获取当前连接线的颜色
      */
     private int getCurrentLineStateColor() {
-        if (mPatternViewMode == NORMAL) {
+        if (mPatternViewMode == PatternViewMode.NORMAL) {
             return mCorrectLineStateColor;
-        } else if (mPatternViewMode == WRONG) {
+        } else if (mPatternViewMode == PatternViewMode.WRONG) {
             return mWrongLineStateColor;
-        } else if (mPatternViewMode == CORRECT) {
+        } else if (mPatternViewMode == PatternViewMode.CORRECT) {
             return mCorrectLineStateColor;
         } else {
             throw new IllegalStateException("Unknown view mode " + mPatternViewMode);
@@ -571,11 +569,11 @@ public class PatternLockView extends View {
      * 获取当前点的颜色
      */
     private int getCurrentDotStateColor(boolean partOfPattern) {
-        if (!partOfPattern || mInStealthMode || mPatternViewMode == NORMAL) {
+        if (!partOfPattern || mInStealthMode || mPatternViewMode == PatternViewMode.NORMAL) {
             return mNormalDotStateColor;//这里给默认值
-        } else if (mPatternViewMode == WRONG) {
+        } else if (mPatternViewMode == PatternViewMode.WRONG) {
             return mWrongDotStateColor;
-        } else if (mPatternViewMode == CORRECT) {
+        } else if (mPatternViewMode == PatternViewMode.CORRECT) {
             return mCorrectDotStateColor;
         } else {
             throw new IllegalStateException("Unknown view mode " + mPatternViewMode);
@@ -586,11 +584,11 @@ public class PatternLockView extends View {
      * 获取点的外围的颜色
      */
     private int getCurrentDotStrokeColor(boolean partOfPattern) {
-        if (!partOfPattern || mInStealthMode || mPatternViewMode == NORMAL) {
+        if (!partOfPattern || mInStealthMode || mPatternViewMode == PatternViewMode.NORMAL) {
             return mCorrectDotStrokeColor;
-        } else if (mPatternViewMode == WRONG) {
+        } else if (mPatternViewMode == PatternViewMode.WRONG) {
             return mWrongDotStrokeStateColor;
-        } else if (mPatternViewMode == CORRECT) {
+        } else if (mPatternViewMode == PatternViewMode.CORRECT) {
             return mCorrectDotStrokeColor;
         } else {
             throw new IllegalStateException("Unknown view mode " + mPatternViewMode);
@@ -901,7 +899,7 @@ public class PatternLockView extends View {
     public void resetPattern() {
         mPattern.clear();
         clearPatternDrawLookup();
-        mPatternViewMode = NORMAL;
+        mPatternViewMode = PatternViewMode.NORMAL;
         invalidate();
     }
 
