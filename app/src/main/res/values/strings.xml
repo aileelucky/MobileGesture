@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MobileGesture</string>
+    <string name="hint_plz_enter_phone_number">请输入账号</string>
+    <string name="hint_plz_enter_passwd">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="setting_security_gesture_set">设置手势密码</string>
+    <string name="auth_security_gesture_set">验证手势密码</string>
+    <string name="confirm">确定</string>
+    <string name="write_your_key_pwd">请输入手势密码</string>
+</resources>

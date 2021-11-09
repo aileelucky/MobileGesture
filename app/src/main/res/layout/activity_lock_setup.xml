@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/login_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_height"
+            android:text="返回"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:textColor="#5C626B" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_textview_style"
+            android:layout_centerHorizontal="true"
+            android:text="@string/setting_security_gesture_set" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/handlock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginTop="40dp"
+        android:background="@null"
+        android:text="@string/write_your_key_pwd"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+    <com.android.patternlockview.PatternLockView
+        android:id="@+id/lock_pattern"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        app:correctDotStateColor="#FE9D7F"
+        app:correctDotStrokeStateColor="#FFDED4"
+        app:dotAnimationDuration="200"
+        app:dotCount="3"
+        app:dotNormalSize="22dp"
+        app:dotSelectedSize="30dp"
+        app:normalDotStateColor="#888888"
+        app:pathWidth="10dp"
+        app:correctLineStateColor="#FFDED4"
+        app:wrongLineStateColor="#C9C9C9"
+        app:wrongDotStateColor="#888888"
+        app:wrongDotStrokeStateColor="#C9C9C9"/>
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            allowInsecureProtocol true
+            url 'http://10.0.20.190:8081/repository/android_repository/'
+        }
+        maven {
+            allowInsecureProtocol true
+            url 'http://10.0.20.190:8081/repository/android_repository_snapshot/' }
+        google()
+        flatDir {
+            dirs 'app/libs'
+        }
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "MobileGesture"
+include ':app',':patternlockview'
+include ':shinemogesture'

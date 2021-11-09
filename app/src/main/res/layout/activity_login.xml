@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/phone_layout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/rounded_gray_bg"
+        >
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/phone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <EditText
+            android:id="@+id/tvPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/hint_plz_enter_phone_number"
+            android:inputType="number"
+            android:paddingRight="24dp"
+            android:singleLine="true"
+            android:text="dengqungood"
+            android:textColor="#5C626B"
+            android:textColorHint="#CBCFD6"
+            android:textCursorDrawable="@drawable/edit_cursor"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_layout"
+        android:minHeight="30dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_gray_bg"
+        android:gravity="center"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/suo"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <EditText
+            android:id="@+id/tvPasswd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/hint_plz_enter_passwd"
+            android:text="ofBfRofvJoUdMynwxstDzHP72rTRQNq1F/UnqSiDc0bBvK9wuZ/EAWLXtzbQAi9p"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="#5C626B"
+            android:textColorHint="#CBCFD6"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/password_layout"
+        android:text="@string/login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:textColor="@color/white"
+        android:background="#558EEE"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
