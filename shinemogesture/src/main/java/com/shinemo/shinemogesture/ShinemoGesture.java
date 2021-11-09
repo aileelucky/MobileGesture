@@ -24,7 +24,7 @@ import retrofit2.Call;
 public class ShinemoGesture {
 
     //登录
-    public static void loginPWD(Context context, LoginRequest request, ShinemoCommonInterface<LoginResp> commonInterface){
+    public static void loginPWD(final Context context, LoginRequest request,final ShinemoCommonInterface<LoginResp> commonInterface){
         GestureService gestureService = RetrofitManager.createService(GestureService.class);
         AdvancedRetrofitHelper.enqueue(context,gestureService.pwdLogin(request),new SimpleRetrofitCallback<SimpleResp<LoginResp>>(){
             @Override
@@ -47,7 +47,7 @@ public class ShinemoGesture {
     }
 
     //查询手势
-    public static void queryGesture(Context context, String account, QueryGestureInterface listener){
+    public static void queryGesture(final Context context, String account, final QueryGestureInterface listener){
         GestureService gestureService = RetrofitManager.createService(GestureService.class);
         QueryGestureRequest queryGestureRequest = new QueryGestureRequest();
         queryGestureRequest.setAccount(account);
@@ -76,7 +76,7 @@ public class ShinemoGesture {
     }
 
     //设置手势
-    public static void setGesture(Context context,String selectDots, String token, String ticket, SettingGestureInterface gestureInterface){
+    public static void setGesture(Context context,String selectDots, String token, String ticket, final SettingGestureInterface gestureInterface){
         GestureService gestureService = RetrofitManager.createService(GestureService.class);
         SettingGestureRequest request = new SettingGestureRequest();
         request.setToken(token);
@@ -105,7 +105,7 @@ public class ShinemoGesture {
     }
 
     //手势认证
-    public static void loginGesture(Context context, String account, String selectDots, ShinemoCommonInterface shinemoCommonInterface){
+    public static void loginGesture(final Context context, String account, String selectDots, final ShinemoCommonInterface shinemoCommonInterface){
         GestureService gestureService = RetrofitManager.createService(GestureService.class);
         QueryGestureRequest queryGestureRequest = new QueryGestureRequest();
         queryGestureRequest.setAccount(account);
